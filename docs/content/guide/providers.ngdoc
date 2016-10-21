@@ -115,7 +115,7 @@ authentication against a remote API. This token will be called `apiToken` and wi
 based on the `clientId` value and a secret stored in the browser's local storage:
 
 ```javascript
-myApp.factory('apiToken', ['clientId', function apiTokenFactory(clientId) {
+myApp.factory('apiAccessToken', ['clientId', function apiTokenFactory(clientId) {
   var encrypt = function(data1, data2) {
     // NSA-proof encryption algorithm:
     return (data1 + ':' + data2).toUpperCase();
@@ -124,7 +124,7 @@ myApp.factory('apiToken', ['clientId', function apiTokenFactory(clientId) {
   var secret = window.localStorage.getItem('myApp.secret');
   var apiToken = encrypt(clientId, secret);
 
-  return apiToken;
+  return apiAccessToken;
 }]);
 ```
 
